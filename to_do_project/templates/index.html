@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    
+</head>
+<body>
+    <div class="container">
+    <h1>TO-DO LIST</h1>
+    <form method="post" action="{% url 'add_task' %}">
+        {% csrf_token %}
+        <input type="text" name="task" placeholder="Enter New Task" required>
+        <button type="submit">Add Tasks</button>
+    </form>
+    <br>
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Created at</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks%}
+        
+        <tr>
+
+            <td class="{% if task.status %}completed{% endif %}">{{ task.task }}</td>
+            <td class="ab">
+                {% if task.status %}
+                    Completed
+                {% else %}
+                    Pending
+                {% endif %}
+            </td>
+            <td>{{ task.created_at|date:"Y-m-d H:i" }}</td>
+            <td>
+                {% if not task.status %}
+                <a href="{%url 'complete_task' task.id %}">✔ Complete</a> <br>
+                {% endif %}
+                <a href="{%url 'delete_task' task.id %}" style="color: red;">❌ Delete</a>
+            </td>
+            
+        </tr>
+        {% endfor %}
+        
+
+    </table>
+    </div>
+</body>
+</html>
