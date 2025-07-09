@@ -24,31 +24,6 @@ It uses a MySQL database to store the data permanently and Django’s powerful b
 - **Database:** MySQL
 - **Tools:** VS Code, MySQL Workbench, Git
 
----
-
-## 📁 Folder Structure 
-
-to_do_project/
-├── to_do_app/ # Django app (views, models, urls)
-│ ├── migrations/
-│ ├── templates/
-│ │ └── index.html
-│ ├── static/
-│ │ └── style.css
-│ ├── views.py
-│ ├── models.py
-│ └── urls.py
-│
-├── to_do_project/ # Django project settings
-│ ├── settings.py
-│ ├── urls.py
-│ └── wsgi.py
-│
-├── db.mysql # MySQL database
-├── manage.py
-└── README.md
-
-
 
 ---
 
