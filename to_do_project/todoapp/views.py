@@ -1,6 +1,6 @@
 
 import mysql.connector
-conn= mysql.connector.connect(host='localhost',username='root',password='root',database='todo_db')
+conn= mysql.connector.connect(host='localhost',username='root',password='',database='todo_db')
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .models import Task
